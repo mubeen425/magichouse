@@ -9,7 +9,7 @@ const Navbar = () => {
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
   const [showLoggedInText, setShowLoggedInText] = useState(false);
-  const [credit, setCredit] = useState(3);
+  const [credit, setCredit] = useState(5);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [userEmail, setUserEmail] = useState("");
