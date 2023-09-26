@@ -4,7 +4,7 @@ export async function makePayment(data) {
   try {
     const token = JSON.parse(localStorage.getItem("token"));
     const response = await axios.post(
-      "http://localhost:5000/api/subscription/payment",
+      "https://magichouse-9ea00f957b54.herokuapp.com/api/subscription/payment",
       data,
       {
         headers: {

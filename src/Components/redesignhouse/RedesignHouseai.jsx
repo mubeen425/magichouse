@@ -191,7 +191,7 @@ const RedesignComponent = () => {
   }
   const containerStyle = {
     alignItems: "center",
-    border: "1px solid black",
+    border: "1px dotted black",
     borderRadius: "10px",
     borderStyle: "solid",
   };
@@ -208,9 +208,9 @@ const RedesignComponent = () => {
 
         <div className="col-xl-4   col-lg-4  col-md-12 col-sm-12 col-xs-12">
           <div className="left-box ">
-            <p>
+            {/* <p>
               You have no credits left. Buy more here to generate your house.
-            </p>
+            </p> */}
             <div
               style={
                 window.innerWidth <= 768

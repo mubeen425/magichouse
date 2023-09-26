@@ -53,7 +53,7 @@ function Pricing() {
             </div>
             <h2 className="sub-heading1">Buy MagicMyHouse credits</h2>
             <p className="sub-text1">
-              You have 10 credits. Join thousands of happy customers. Explore
+             Join thousands of happy customers. Explore
               more options below.
             </p>
           </div>
