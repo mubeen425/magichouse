@@ -73,9 +73,9 @@ const LoginForm = () => {
             room today. You will get 3 generations for free.
           </p>
         </div>
-        <div className="col-md-9 ">
-          <div className="card-body">
-            <div className="mt-4">
+        <div className="col-xl-7 m-auto col-lg-8  col-md-12 col-sm-12 col-xs-12">
+          <div className="">
+            <div className="mt-5">
               <div className="row">
                 <div className="col-lg-12 col-md-12 col-sm-12 nbv">
                   <GoogleLogin onSuccess={responseMessage} />

@@ -193,7 +193,7 @@ const RedesignComponent = () => {
     alignItems: "center",
     border: "1px solid black",
     borderRadius: "10px",
-    borderStyle: "dashed",
+    borderStyle: "solid",
   };
 
   const responsiveContainerStyle = {
@@ -349,7 +349,7 @@ const RedesignComponent = () => {
         </div>
         <div className="col-xl-8  col-lg-8  col-md-12 col-sm-12 col-xs-12">
           <div className="right-box">
-            <div className="row">
+            <div className="flex flex-col justify-center items-center">
               {selectedImagesPreview.map((imageData, index) => (
                 <Col key={imageData.id} sm={6}>
                   <div className="selected-image">
@@ -395,9 +395,11 @@ const RedesignComponent = () => {
                 </Col>
               ))}
               {apiResponseImages.length > 0 && (
-                <button onClick={handleDownloadAllImages} className="bo">
-                  Download All Images
-                </button>
+                <Col>
+                  <button onClick={handleDownloadAllImages} className="bo mt-5">
+                    Download Image
+                  </button>
+                </Col>
               )}
             </div>
           </div>
@@ -418,17 +420,16 @@ const ImageGrid = ({
     {rows.map((row, rowIndex) => (
       <Row key={rowIndex} className="image-row">
         {row.map((imageData) => (
-          <Col key={imageData.id} sm={4} className="image-container">
+          <Col key={imageData.id} xl={4} lg={4} md={4} sm={1} className="image-container">
             <div className="image-wrapper">
               <img
                 src={imageData.src}
                 alt={imageData.name}
                 onClick={() => toggleImageSelection(imageData.name)}
-                className={`position-relative img-fluid ${
-                  selectedImages?.includes(imageData.name)
-                    ? "selected-image"
-                    : ""
-                }`}
+                className={`img-fluid ${selectedImages?.includes(imageData.name)
+                  ? "selected-image"
+                  : ""
+                  }`}
               />
               {selectedImages?.includes(imageData.name) && (
                 <svg

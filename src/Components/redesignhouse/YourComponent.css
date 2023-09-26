@@ -49,7 +49,7 @@
 }
 .image-grid img {
   height: auto;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .order123 {
@@ -85,7 +85,7 @@
 }
 .image-wrapper {
   position: relative;
-  margin-bottom: -25px;
+  /* margin-bottom: -25px; */
 }
 
 .image-wrapper img {
@@ -95,7 +95,7 @@
 
 .image-text {
   font-size: 10px;
-  position: relative;
+  /* position: relative; */
   bottom: 11px;
   left: 0;
   bottom: 28px;
@@ -175,10 +175,7 @@
     padding-bottom: 2rem;
     margin-top: 62rem;
   }
-  .svg-icon {
-    position: absolute;
-    left: 16rem;
-  }
+ 
   .left-box {
     width: 100%;
     align-items: center;
@@ -229,4 +226,21 @@
     width: 100%;
     margin: 20px 0;
   }
+
+
+  .image-container {
+    flex:calc(33.33% - 20px); /* Three images in one row */
+    margin-right: 10px; /* Adjust the margin between images */
+    margin-bottom: 10px; /* Adjust the margin between rows */
+  }
+.svg-icon {
+    position: absolute;
+    left: 3.3rem;
+    width: 14px;
+    height: 14px;
+    top: 9px;
+}
+/* Original CSS for larger screens */
+/* .image-container {
+  flex: calc(25% - 20px); /* Four images in one row */
 }

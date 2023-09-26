@@ -183,7 +183,7 @@ function Pricing() {
                 <span className="main-text1">PRI</span>CING PLAN
               </p>
             </div>
-            <h2 className="sub-heading1">Buy MagicMyHouse Credits</h2>
+            <h2 className="sub-heading1">Buy MagicMyHouse credits</h2>
             <p className="sub-text1">
               You have 10 credits. Join thousands of happy customers. Explore
               more options below.
@@ -197,9 +197,9 @@ function Pricing() {
             <div className="">
               <div className="box1">
                 <div className="pac">1 Month Package</div>
-                <div className="price-heading">$9.99</div>
+                <div className="price-heading">$5</div>
                 <div className="price-description">
-                  Unlimted credit credits for <br />
+                  Unlimited credits  <br />
                   <span className="colorrr"> For a duration of 1 month</span>
                 </div>
                 {isSubscribed9 ? (
@@ -222,7 +222,7 @@ function Pricing() {
                       dataPayment(9);
                     }}
                   >
-                    Pay
+                    PAY
                   </button>
                 )}
               </div>
@@ -232,9 +232,9 @@ function Pricing() {
             <div className="">
               <div className="box2">
                 <div className="pac">6 Month Package</div>
-                <div className="price-heading">$24.99</div>
+                <div className="price-heading">$9</div>
                 <div className="price-description">
-                  Unlimted credit credits for <br />
+                  Unlimited credits <br />
                   <span className="colorrr"> For a duration of 6 month</span>
                 </div>
                 {isSubscribed24 ? (
@@ -257,7 +257,7 @@ function Pricing() {
                       dataPayment(24);
                     }}
                   >
-                    Pay
+                    PAY
                   </button>
                 )}
               </div>
