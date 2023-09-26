@@ -105,7 +105,7 @@ const RedesignComponent = () => {
       updatedSelectedImages.splice(imageIndex, 1);
       updatedSelectedImagesPreview.splice(imageIndex, 1);
     } else {
-      if (updatedSelectedImages.length < 2) {
+      if (updatedSelectedImages.length < 1) {
         updatedSelectedImages.push(imageId);
         updatedSelectedImagesPreview.push(imageGridItem);
       }
@@ -337,7 +337,7 @@ const RedesignComponent = () => {
               </select>
             </div>
             <p className="mt-3">
-              <span>Select Room Themes (up to 2) </span>
+              <span>Select Room Themes (up to 1) </span>
             </p>
             <ImageGrid
               rows={rows}
