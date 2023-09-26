@@ -1,0 +1,126 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
+}
+
+.background-gradient {
+  background-color: #fbf3f8;
+  width: 64%;
+  border-radius: 69px;
+  margin: auto;
+}
+
+.main-text {
+  font-size: 12px;
+  color: rgba(230, 0, 126, 1);
+  -webkit-background-clip: text;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.main-text1 {
+  font-size: 12px;
+  color: rgba(230, 0, 126, 1);
+  -webkit-background-clip: text;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.sub-heading {
+  font-weight: 300;
+  font-size: 47px;
+  font-family: "Poppins", sans-serif !important;
+  margin-right: 2rem;
+  align-items: center;
+}
+
+.sub-text {
+  font-size: 12px;
+  color: #5d5d5d;
+  text-align: center;
+}
+
+.top-right-section {
+  position: absolute;
+  top: 220px;
+  right: 140px;
+  width: 220px;
+  height: 200px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.round-background {
+  background: #bf8db373;
+  border-radius: 100px;
+  filter: blur(79px);
+  right: -4rem;
+  position: absolute;
+  top: 2rem;
+  height: 13rem;
+  width: 14rem;
+}
+
+.log-button {
+  background: linear-gradient(
+    90deg,
+    rgba(230, 0, 126, 1) 0%,
+    rgba(102, 36, 131, 1) 73%
+  );
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif !important;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 100;
+}
+.log-button:hover {
+  background-color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffd0ef !important;
+}
+@media (max-width: 768px) {
+  .home-container {
+    height: auto;
+    padding: 20px;
+  }
+
+  .background-gradient {
+    width: 100%;
+    font-size: 2px;
+    margin-left: 2px;
+    text-align: center;
+  }
+
+  .main-text {
+    font-size: 14px;
+  }
+
+  .sub-heading {
+    font-size: 32px;
+    margin-right: 0;
+  }
+
+  .sub-text {
+    font-size: 14px;
+    text-align: center;
+  }
+  .round-background {
+    display: none;
+  }
+  .log-button {
+    font-size: 16px;
+  }
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 4rem;
+}

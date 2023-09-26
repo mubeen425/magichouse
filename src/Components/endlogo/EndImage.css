@@ -1,0 +1,54 @@
+/* Default styles for larger screens */
+.end-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  margin-left: 1rem;
+}
+
+.center-logo {
+  width: auto;
+  height: 60px;
+  margin-bottom: 10px;
+  margin-top: 10rem;
+}
+
+.lorem-text {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Poppins';
+  color: #5D5D5D;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .end-image-container {
+    height: 70vh;
+    margin-left: 0; /* Remove left margin on smaller screens */
+  }
+
+  .center-logo {
+    height: 40px; /* Reduce logo size for smaller screens */
+    margin-top: 6rem; /* Adjust logo margin for smaller screens */
+  }
+}
+
+/* Responsive adjustments for even smaller screens */
+@media (max-width: 576px) {
+  .end-image-container {
+    height: auto; /* Let content dictate container height */
+  }
+
+  .center-logo {
+    height: 30px; /* Further reduce logo size for very small screens */
+    margin-top: 3rem; /* Adjust logo margin for very small screens */
+  }
+
+  .lorem-text {
+    font-size: 13px;
+    
+  }
+}
