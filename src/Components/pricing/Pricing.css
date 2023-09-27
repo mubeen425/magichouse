@@ -8,7 +8,7 @@
 }
 
 .background-gradient1 {
-  background-color: #ebe1e7;
+  background-color: #fbf3f8;
   width: 13%;
   /* margin-left: 19rem; */
   border-radius: 69px;
@@ -34,7 +34,7 @@
 }
 
 .main-text133 {
-  color: #bd0c80;
+  color: rgba(230, 0, 126, 1);;
   -webkit-background-clip: text;
   text-align: center;
   margin-top: 3rem;
@@ -223,7 +223,7 @@
 /* ... (other styles) ... */
 
 /* Media query for screens with a maximum width of 768px */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
 
   .circle {
     display: none;
@@ -250,11 +250,10 @@
 
  
 .background-gradient1{
-  width: 80%;
+  width: 35%;
 }
   .box-container {
     flex-direction: column;
-    /* Change to column direction */
     align-items: center;
     /* Center-align items */
   }
@@ -272,6 +271,7 @@
   .svg123 {
     display: none;
   }
+  .main-text1 {
+    font-size: 12px;
+} 
 }
-
-/* Add more media queries as needed for different screen sizes */

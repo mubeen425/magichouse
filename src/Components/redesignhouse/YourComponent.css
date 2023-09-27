@@ -161,7 +161,7 @@
   margin-top: 7px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 998px) {
   .container1 {
     flex-direction: column;
     align-items: center;
@@ -214,7 +214,7 @@
     display: contents;
   }
   .bo {
-    margin-left: 0;
+    /* margin-left: 0; */
     margin-right: 10px;
   }
   .image-row {
@@ -229,18 +229,16 @@
 
 
   .image-container {
-    flex:calc(33.33% - 20px); /* Three images in one row */
+    flex:calc(33.33% - 20px);
     margin-right: 10px; /* Adjust the margin between images */
     margin-bottom: 10px; /* Adjust the margin between rows */
   }
-.svg-icon {
+  .svg-icon {
     position: absolute;
-    left: 3.3rem;
-    width: 14px;
-    height: 14px;
-    top: 9px;
-}
-/* Original CSS for larger screens */
-/* .image-container {
-  flex: calc(25% - 20px); /* Four images in one row */
+    /* left: 16rem; */
+    width: 22px;
+    /* height: 14px; */
+    left: 4rem;
+  }
+
 }

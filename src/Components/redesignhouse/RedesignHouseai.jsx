@@ -193,7 +193,7 @@ const RedesignComponent = () => {
     alignItems: "center",
     border: "1px dotted black",
     borderRadius: "10px",
-    borderStyle: "solid",
+    borderStyle: "dashed",
   };
 
   const responsiveContainerStyle = {
@@ -244,7 +244,7 @@ const RedesignComponent = () => {
                             style={{
                               position: "absolute",
                               right: "25px",
-                              top: "61px",
+                              top: "8px",
                               background: "none",
                               border: "none",
                               color: "red",
@@ -269,7 +269,7 @@ const RedesignComponent = () => {
                             style={{
                               position: "absolute",
                               left: "34px",
-                              top: "61px",
+                              top: "8px",
                             }}
                           >
                             Original Room

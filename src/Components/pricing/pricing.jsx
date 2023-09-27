@@ -47,7 +47,7 @@ function Pricing() {
           <div className="col-xl-10 m-auto col-lg-8  col-md-12 col-sm-12 col-xs-12">
             <div className="background-gradient1">
               <p className="main-text main-text133">
-                <span className="main-text1">PRI</span>CING PLAN
+                <span className="main-text1">PRICING PLAN</span>
               </p>
             </div>
             <h2 className="sub-heading1">Buy MagicMyHouse credits</h2>

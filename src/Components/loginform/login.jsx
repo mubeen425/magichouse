@@ -15,27 +15,32 @@ const LoginForm = () => {
     const accessToken = response.credential;
     const user = jwt_decode(accessToken);
 
-    const result = await apiClient.post("/auth/google", {
-      googlePayload: user,
-    });
+    try{
+      const result = await apiClient.post("/auth/google", {
+        googlePayload: user,
+      });
+  
+      console.log(result)
+      // if (!result.ok) {
+  
+      //   toast.error(result.data.message || "Google Login Failed");
+      //   return;
+      // }
+  
+  
+      localStorage.setItem("googleUser", JSON.stringify(result.data.data));
+      localStorage.setItem("token", JSON.stringify(result.data.token));
+  
+    
+  
+      navigate("/designing");
+      window.location.reload();
+  
 
-    if (!result.ok) {
-      toast.error(result.data.message || "Google Login Failed");
-      return;
-    }
+    }catch (error) {
 
-    // Retrieve the user's image URL from the result
-    // const userImageURL = result.data.data.userImageURL;
-
-    localStorage.setItem("googleUser", JSON.stringify(result.data.data));
-    localStorage.setItem("token", JSON.stringify(result.data.token));
-
-    // Store the user's image URL in local storage
-    // localStorage.setItem("userImage", JSON.stringify(userImageURL));
-
-    navigate("/designing");
-    window.location.reload();
-  };
+console.log(error);
+    } };
 
   useEffect(() => {
     const fetchUserImage = async () => {

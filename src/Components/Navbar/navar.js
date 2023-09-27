@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
+  const user = JSON.parse(localStorage.getItem("googleUser"))
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
@@ -129,7 +130,7 @@ const Navbar = () => {
             {showLoggedInText && (
               <div className="logedtext">
                 <div className="loggedInText px-4 py-2 text-white">
-                  Your Credit: {credit}
+                Your Credit: {user?.subscription?.status == "paid" ? "Unlimited" : credit}
                 </div>
               </div>
             )}

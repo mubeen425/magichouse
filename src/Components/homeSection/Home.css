@@ -101,8 +101,15 @@ a:hover {
 
   .main-text {
     font-size: 14px;
+    letter-spacing: 2;
+    text-align: center;
+    
   }
-
+  
+    .main-text1 {
+font-size: 14px;      
+    }    
+  
   .sub-heading {
     font-size: 32px;
     margin-right: 0;

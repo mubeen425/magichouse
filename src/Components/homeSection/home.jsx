@@ -11,8 +11,9 @@ const Home = () => {
         <div className="col-xl-7 m-auto col-lg-8  col-md-12 col-sm-12 col-xs-12">
           <div className="background-gradient mt-5">
             <p className="main-text">
-              <span className="main-text1">ALREADY</span> GENERATED MORE THAN 1
+              <span className="main-text1">ALREADY GENERATED  MORE THAN 1
               MILLION DESIGNS
+              </span>
             </p>
           </div>
           <h2 className="sub-heading" style={{ textAlign: "center" }}>
