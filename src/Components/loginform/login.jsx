@@ -33,7 +33,7 @@ const LoginForm = () => {
     // Store the user's image URL in local storage
     // localStorage.setItem("userImage", JSON.stringify(userImageURL));
 
-    navigate("/desiging");
+    navigate("/designing");
     window.location.reload();
   };
 

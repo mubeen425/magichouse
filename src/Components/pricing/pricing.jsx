@@ -25,8 +25,7 @@ function Pricing() {
   async function dataPayment(amount) {
     try {
       const response = await makePayment({ amount });
-      window.location.replace(response?._links?.checkout.href)
-
+      window.location.replace(response?._links?.checkout.href);
 
       setPaymentData(response?.data?.amount?.value);
       const amountValue = response?.data?.amount?.value;
@@ -53,8 +52,7 @@ function Pricing() {
             </div>
             <h2 className="sub-heading1">Buy MagicMyHouse credits</h2>
             <p className="sub-text1">
-             Join thousands of happy customers. Explore
-              more options below.
+              Join thousands of happy customers. Explore more options below.
             </p>
           </div>
           <div className="col-xl-1  col-lg-1  col-md-12 col-sm-12 col-xs-12"></div>
@@ -67,7 +65,7 @@ function Pricing() {
                 <div className="pac">1 Month Package</div>
                 <div className="price-heading">$5</div>
                 <div className="price-description">
-                  Unlimited credits  <br />
+                  Unlimited credits <br />
                   <span className="colorrr"> For a duration of 1 month</span>
                 </div>
                 {isSubscribed9 ? (

@@ -112,7 +112,7 @@ const Navbar = () => {
           {isLoggedIn && (
             <>
               <li className="nav-item">
-                <Link to="/desiging" className="nav-link nav-link1">
+                <Link to="/designing" className="nav-link nav-link1">
                   Redesign
                 </Link>
               </li>

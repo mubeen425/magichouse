@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
+const user = localStorage.getItem("googleUser");
+
 const Home = () => {
   return (
     <div className="container">
@@ -23,7 +25,7 @@ const Home = () => {
             Join Our Satisfied customers <br /> and revamp your space today!
           </p>
           <div className="button-container">
-            <Link to="/desiging" className="log-button">
+            <Link to={user ? "/designing " : "/login"} className="log-button">
               TRANSFORM YOUR HOUSE
             </Link>
           </div>

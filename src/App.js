@@ -65,7 +65,7 @@ function App() {
             {" "}
           </Route>
           <Route
-            path="/desiging"
+            path="/designing"
             element={
               <ProtectedRoute>
                 <RedesignHouse credits={credits} />
