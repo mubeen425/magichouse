@@ -47,8 +47,12 @@
     margin-top: 3rem; /* Adjust logo margin for very small screens */
   }
 
-  .lorem-text {
-    font-size: 13px;
-    
-  }
+}
+@media (max-width: 578px) {
+ .top-set{
+  margin-top: 3rem;
+ }
+ .lorem-text {
+  font-size: 12px;
+}
 }

@@ -75,7 +75,7 @@ console.log(error);
           </h2>
           <p className="sub-text">
             Sign in below with Google to create a free account and redesign your
-            room today. You will get 3 generations for free.
+            room today. You will get 5 generations for free.
           </p>
         </div>
         <div className="col-xl-7 m-auto col-lg-8  col-md-12 col-sm-12 col-xs-12">

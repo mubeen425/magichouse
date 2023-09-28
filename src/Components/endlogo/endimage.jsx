@@ -4,7 +4,7 @@ import './EndImage.css';
 const EndImage = () => {
   return (
 
-    <div className="container mb-5">
+    <div className="container top-set mb-5">
       <div className="row">
         <div className="col-xl-8 m-auto col-lg-8 text-center col-md-12 col-sm-12 col-xs-12">
          

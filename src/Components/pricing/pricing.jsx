@@ -135,7 +135,7 @@ function Pricing() {
           <div className="col-xl-1 col-lg-1  col-md-12 col-sm-12 col-xs-12"></div>
           <div className="col-xl-5 col-lg-5  col-md-12 col-sm-12 col-xs-12">
             <div className="x12">
-              <p>
+              <p style={{fontSize:'14px'}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -153,7 +153,7 @@ function Pricing() {
                 </svg>
                 Onetime payments
               </p>
-              <p>
+              <p style={{fontSize:'14px'}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -171,7 +171,7 @@ function Pricing() {
                 </svg>
                 Premium support by email
               </p>
-              <p>
+              <p style={{fontSize:'14px'}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -193,7 +193,7 @@ function Pricing() {
           </div>
           <div className="col-xl-5 col-lg-5  col-md-12 col-sm-12 col-xs-12">
             <div className="x12">
-              <p>
+              <p style={{fontSize:'14px'}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -211,7 +211,7 @@ function Pricing() {
                 </svg>
                 Onetime payments
               </p>
-              <p>
+              <p style={{fontSize:'14px'}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -229,7 +229,7 @@ function Pricing() {
                 </svg>
                 Premium support by email
               </p>
-              <p>
+              <p style={{fontSize:'14px'}}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"

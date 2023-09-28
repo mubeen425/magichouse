@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("googleUser"))
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");

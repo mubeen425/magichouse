@@ -49,17 +49,17 @@ const RedesignComponent = () => {
     },
     {
       id: "Image 7",
-      src: process.env.PUBLIC_URL + "/image11.png",
+      src: process.env.PUBLIC_URL + "/image13.png",
       name: "Industrial",
     },
     {
       id: "Image 8",
-      src: process.env.PUBLIC_URL + "/image12.png",
+      src: process.env.PUBLIC_URL + "/image11.png",
       name: "Neoclassic",
     },
     {
       id: "Image 9",
-      src: process.env.PUBLIC_URL + "/image7.png",
+      src: process.env.PUBLIC_URL + "/image12.png",
       name: "Tribal",
     },
   ]);
@@ -193,11 +193,18 @@ const RedesignComponent = () => {
     alignItems: "center",
     border: "1px dotted black",
     borderRadius: "10px",
-    borderStyle: "dashed",
   };
-
+  const containerStyle1 = {
+    alignItems: "center",
+    borderRadius: "10px",
+  };
   const responsiveContainerStyle = {
     ...containerStyle,
+    width: "100%",
+    marginRight: "5.4rem",
+  };
+  const responsiveContainerStyle1 = {
+    ...containerStyle1,
     width: "100%",
     marginRight: "5.4rem",
   };
@@ -219,12 +226,12 @@ const RedesignComponent = () => {
               }
             >
               <div
-                style={
-                  window.innerWidth <= 768
-                    ? responsiveContainerStyle
-                    : containerStyle
-                }
-              >
+          style={
+            window.innerWidth <= 768
+              ? responsiveContainerStyle1
+            : containerStyle1
+          }      
+        >
                 <div>
                   {selectedImage ? (
                     <div className="uploaded-image  rounded">
