@@ -64,7 +64,7 @@ const RedesignComponent = () => {
     },
   ]);
   const rows = [];
-  for (let i = 0; i < imageGridData.length; i += 3) {
+  for (let i = 0; i < imageGridData?.length; i += 3) {
     const row = imageGridData.slice(i, i + 3);
     rows.push(row);
   }
@@ -105,7 +105,7 @@ const RedesignComponent = () => {
       updatedSelectedImages.splice(imageIndex, 1);
       updatedSelectedImagesPreview.splice(imageIndex, 1);
     } else {
-      if (updatedSelectedImages.length < 1) {
+      if (updatedSelectedImages?.length < 1) {
         updatedSelectedImages.push(imageId);
         updatedSelectedImagesPreview.push(imageGridItem);
       }
@@ -121,7 +121,7 @@ const RedesignComponent = () => {
     container.style.display = "none";
 
     // Iterate through the API response images
-    apiResponseImages.forEach((imageUrl, index) => {
+    apiResponseImages?.forEach((imageUrl, index) => {
       if (imageUrl) {
         // If the image URL is defined, create an anchor element for download
         const anchor = document.createElement("a");
@@ -157,7 +157,7 @@ const RedesignComponent = () => {
     });
   };
   async function handleSubmit() {
-    if (selectedImages.length === 0) {
+    if (selectedImages?.length === 0) {
       handleAlert("Please select at least one photo before rendering designs.");
       return;
     }
@@ -178,15 +178,18 @@ const RedesignComponent = () => {
       const result = await request(formdata);
 
       // Store the API response images in the state
-      setApiResponseImages(result.data.result.filteredResponses);
-      console.log("API Response Images:", result.data.result);
-      setResultData(result.data.result.filteredResponses);
+      setApiResponseImages(result?.data?.result?.filteredResponses);
+      // console.log("API Response Images:", result.data.result);
+      toast.success(result?.data?.result?.filteredResponses)
+      setResultData(result?.data?.result?.filteredResponses);
       localStorage.setItem(
         "googleUser",
-        JSON.stringify(result.data.result.updatedUser)
+        JSON.stringify(result?.data?.result?.updatedUser)
       );
     } catch (error) {
-      console.error("API request error:", error);
+      console.log(error)
+      // toast.error(error.response.message)
+      // console.error("API request error:", error);
     }
   }
   const containerStyle = {
@@ -350,8 +353,8 @@ const RedesignComponent = () => {
         <div className="col-xl-8  col-lg-8  col-md-12 col-sm-12 col-xs-12">
           <div className="right-box">
             <div className="flex flex-col justify-center items-center">
-              {selectedImagesPreview.map((imageData, index) => (
-                <Col key={imageData.id} sm={6}>
+              {selectedImagesPreview?.map((imageData, index) => (
+                <Col key={imageData?.id} sm={6}>
                   <div className="selected-image">
                     {resultData?.length > 0 ? (
                       <img
@@ -394,7 +397,7 @@ const RedesignComponent = () => {
                   </div>
                 </Col>
               ))}
-              {apiResponseImages.length > 0 && (
+              {apiResponseImages?.length > 0 && (
                 <Col>
                   <button onClick={handleDownloadAllImages} className="bo mt-5">
                     Download Image
@@ -457,7 +460,7 @@ const ImageGrid = ({
         <Button onClick={handleSubmit} className="bo">
           RENDER DESIGNS
         </Button>
-        <span className="credits">Cost : {selectedImages.length}</span>
+        <span className="credits">Cost : {selectedImages?.length}</span>
       </Col>
       <ToastContainer />
     </Row>
