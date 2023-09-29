@@ -15,7 +15,7 @@ const RedesignComponent = () => {
   const [selectedImagesPreview, setSelectedImagesPreview] = useState([]);
   const [selectedRoomType, setSelectedRoomType] = useState("");
   const [apiResponseImages, setApiResponseImages] = useState([]);
-
+  const user = JSON.parse(localStorage.getItem())
   const [imageGridData, setImageGridData] = useState([
     {
       id: "Image 1",
@@ -475,10 +475,10 @@ const ImageGrid = ({
 
     <Row className="render">
       <Col>
-        <Button onClick={handleSubmit} className="bo">
+        {user.subscription.credits <= 0 && <Button onClick={handleSubmit} className="bo">
           RENDER DESIGNS
-        </Button>
-        <span style={{ color: "red" }} className="credits">Cost : {selectedImages?.length}</span>
+        </Button>}
+        <span style={{ color: user?.subscription?.credits <= 0 ? "red" : "black" }} className="credits">Cost : {selectedImages?.length}</span>
       </Col>
       <ToastContainer />
     </Row>
