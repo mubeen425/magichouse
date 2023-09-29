@@ -16,6 +16,8 @@ const RedesignComponent = () => {
   const [selectedRoomType, setSelectedRoomType] = useState("");
   const [apiResponseImages, setApiResponseImages] = useState([]);
 
+
+
   const [imageGridData, setImageGridData] = useState([
     {
       id: "Image 1",
@@ -80,9 +82,7 @@ const RedesignComponent = () => {
           if (file.type.startsWith("image/")) {
             setDraggedImage(e.target.result);
             setSelectedImage(e.target.result);
-            // Store the uploaded image file in the uploadedImage state variable
             setuploadedImage(file);
-            console.log("Dragged Image:", e.target.result);
           } else {
             toast.error("Invalid file type. Please upload an image.");
           }
@@ -92,12 +92,9 @@ const RedesignComponent = () => {
     },
     accept: "image/*",
   });
-
-  ////////////////////////////////////////////////////////////////////////////
   const toggleImageSelection = (imageId) => {
     const updatedSelectedImages = [...selectedImages];
     const updatedSelectedImagesPreview = [...selectedImagesPreview];
-    console.log(imageGridData.getSelected, updatedSelectedImagesPreview);
     const imageIndex = updatedSelectedImages.indexOf(imageId);
     const imageGridItem = imageGridData.find((data) => data.name === imageId);
 
@@ -110,17 +107,39 @@ const RedesignComponent = () => {
         updatedSelectedImagesPreview.push(imageGridItem);
       }
     }
-    console.log(updatedSelectedImages, "sel");
     setSelectedImages(updatedSelectedImages);
     setSelectedImagesPreview(updatedSelectedImagesPreview);
     setResultData(null);
   };
+
+  const handleUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (file.type.startsWith("image/")) {
+          setDraggedImage(reader.result);
+          setSelectedImage(reader.result);
+          setuploadedImage(file);
+        } else {
+          toast.error("Invalid file type. Please upload an image.");
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+
+
+
+
+
+
   function handleDownloadAllImages() {
     // Create a temporary container element
     const container = document.createElement("div");
     container.style.display = "none";
-
-    // Iterate through the API response images
     apiResponseImages?.forEach((imageUrl, index) => {
       if (imageUrl) {
         // If the image URL is defined, create an anchor element for download
@@ -167,29 +186,24 @@ const RedesignComponent = () => {
     }
 
     const formdata = new FormData();
-    console.log(uploadedImage);
-    console.log(selectedImages);
-    console.log(selectedRoomType);
-    formdata.append("image", uploadedImage); // Include the uploaded image in the form data
-    formdata.append("themes", JSON.stringify(selectedImages)); // Include the selected themes in the form data
+    formdata.append("image", uploadedImage);
+    formdata.append("themes", JSON.stringify(selectedImages));
     formdata.append("room", selectedRoomType);
 
     try {
       const result = await request(formdata);
+      if (result.data.status == "false") {
+        toast.success(result?.data?.result?.filteredResponses)
+      } else if (result.data.status == "true") {
+        setApiResponseImages(result?.data?.result?.filteredResponses);
+        setResultData(result?.data?.result?.filteredResponses);
+        localStorage.setItem(
+          "googleUser",
+          JSON.stringify(result?.data?.result?.updatedUser)
+        );
+      }
 
-      // Store the API response images in the state
-      setApiResponseImages(result?.data?.result?.filteredResponses);
-      // console.log("API Response Images:", result.data.result);
-      toast.success(result?.data?.result?.filteredResponses)
-      setResultData(result?.data?.result?.filteredResponses);
-      localStorage.setItem(
-        "googleUser",
-        JSON.stringify(result?.data?.result?.updatedUser)
-      );
     } catch (error) {
-      console.log(error)
-      // toast.error(error.response.message)
-      // console.error("API request error:", error);
     }
   }
   const containerStyle = {
@@ -211,9 +225,6 @@ const RedesignComponent = () => {
 
         <div className="col-xl-4   col-lg-4  col-md-12 col-sm-12 col-xs-12">
           <div className="left-box ">
-            {/* <p>
-              You have no credits left. Buy more here to generate your house.
-            </p> */}
             <div
               style={
                 window.innerWidth <= 768
@@ -281,37 +292,34 @@ const RedesignComponent = () => {
                       )}
                     </div>
                   ) : (
-                    <div {...getRootProps()} className="mb-5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="30"
-                        height="30"
-                        style={{ marginTop: "1rem" }}
-                        fill="#009FE3"
-                        class="bi bi-cloud-upload"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"
-                        />
-                      </svg>{" "}
-                      <br />
-                      Drag and drop Your Image
-                      <br />
-                      or <br />
-                      <button
-                        className="upload-button"
-                        onClick={() =>
-                          document.querySelector('input[type="file"]')
-                        }
-                      >
+                    <div className="mb-5">
+                      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }} {...getRootProps()}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="30"
+                          height="30"
+                          style={{ marginTop: "1rem" }}
+                          fill="#009FE3"
+                          class="bi bi-cloud-upload"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"
+                          />
+                        </svg>{" "}
+
+                        <span>Drag and drop Your Image</span>
+                        <span>or</span>
+                      </div>
+                      <input id="upload" type="file" style={{ display: 'none' }} onChange={handleUpload} />
+                      <label className="upload-button" htmlFor="upload">
                         Upload Photo
-                      </button>
+                      </label>
                     </div>
                   )}
                 </div>
@@ -408,7 +416,7 @@ const RedesignComponent = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 export default RedesignComponent;
@@ -460,7 +468,7 @@ const ImageGrid = ({
         <Button onClick={handleSubmit} className="bo">
           RENDER DESIGNS
         </Button>
-        <span className="credits">Cost : {selectedImages?.length}</span>
+        <span style={{ color: "red" }} className="credits">Cost : {selectedImages?.length}</span>
       </Col>
       <ToastContainer />
     </Row>

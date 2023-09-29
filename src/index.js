@@ -23,6 +23,6 @@ ReactDOM.render(
       theme="light"
     />
     <App />
-  </GoogleOAuthProvider>,
+  </GoogleOAuthProvider >,
   document.getElementById("root")
 );
