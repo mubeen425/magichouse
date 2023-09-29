@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   position: static;
   //   width: 900px;
-  height: 500px;
+  height: 600px;
   border: 2px solid white;
 `;
 
@@ -39,7 +39,7 @@ const SliderInput = styled.input`
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: auto;
+  height: 100% !important;
   background: transparent;
   outline: none;
   margin: 0;

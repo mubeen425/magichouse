@@ -226,12 +226,12 @@ const RedesignComponent = () => {
               }
             >
               <div
-          style={
-            window.innerWidth <= 768
-              ? responsiveContainerStyle1
-            : containerStyle1
-          }      
-        >
+                style={
+                  window.innerWidth <= 768
+                    ? responsiveContainerStyle1
+                    : containerStyle1
+                }
+              >
                 <div>
                   {selectedImage ? (
                     <div className="uploaded-image  rounded">
@@ -310,9 +310,12 @@ const RedesignComponent = () => {
                       or <br />
                       <button
                         className="upload-button"
-                        onClick={() =>
-                          document.querySelector('input[type="file"]')
-                        }
+                        onClick={() => {
+                          const fileInput = document.querySelector('input[type="file"]');
+                          if (fileInput) {
+                            fileInput.click(); // Simulate a click event on the file input
+                          }
+                        }}
                       >
                         Upload Photo
                       </button>

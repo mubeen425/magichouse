@@ -611,7 +611,7 @@
     position: absolute;
     top: -5%;
     left: 29%;
-    width: 50%;
+    width: 51%;
     font-size: 9px;
     display: flex;
     justify-content: space-between;
@@ -737,7 +737,10 @@
   }
 
 
-
+  .sub-heading {
+    font-size: 24px;
+    margin-right: 0;
+}
 
   .num-set2 {
     margin-bottom: 0px;
@@ -757,7 +760,7 @@
 @media (max-width: 530px) {
 
   .mar-top-nuum {
-    margin-top: 0;
+    margin-top: 0 !important;
   }
 
   .num-set {
@@ -770,4 +773,60 @@
   }
 
 
+}
+
+
+
+
+
+@media (max-width: 320px) {
+
+  .comp-1 {
+    display: inline-block;
+    background: #FFFF;
+    padding: 10px;
+    border-radius: 1rem;
+    position: absolute;
+    top: -5%;
+    left: 22%;
+    width: 61%;
+    font-size: 8px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 1px 7px 1px #d6d3d3;
+    cursor: pointer;
+}
+.comp-2 {
+  display: inline-block;
+  background: #FFFF;
+  padding: 10px;
+  border-radius: 1rem;
+  position: absolute;
+  top: 93%;
+  width: 49%;
+  font-size: 8px;
+  display: flex;
+  justify-content: space-between;
+  left: -1%;
+  cursor: pointer;
+  box-shadow: 1px 1px 7px 1px #d6d3d3;
+}
+.comp-3 {
+  display: inline-block;
+  background: #FFFF;
+  padding: 10px;
+  border-radius: 1rem;
+  position: absolute;
+  top: 93%;
+  width: 51%;
+  font-size: 7px;
+  display: flex;
+  justify-content: space-between;
+  left: 52%;
+  cursor: pointer;
+  box-shadow: 1px 1px 7px 1px #d6d3d3;
+}
+.mar-top-nuum {
+  margin-top: 0 !important;
+}
 }
