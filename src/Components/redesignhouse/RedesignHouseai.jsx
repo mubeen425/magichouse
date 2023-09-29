@@ -7,6 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingOverlay from "../LoadingOverlay";
 import { useDropzone } from "react-dropzone";
+
+const user = JSON.parse(localStorage.getItem("googleUser"))
 const RedesignComponent = () => {
   const [selectedImage, setSelectedImage] = useState();
   const [resultData, setResultData] = useState();
@@ -15,7 +17,7 @@ const RedesignComponent = () => {
   const [selectedImagesPreview, setSelectedImagesPreview] = useState([]);
   const [selectedRoomType, setSelectedRoomType] = useState("");
   const [apiResponseImages, setApiResponseImages] = useState([]);
-  const user = JSON.parse(localStorage.getItem())
+
   const [imageGridData, setImageGridData] = useState([
     {
       id: "Image 1",
@@ -362,6 +364,7 @@ const RedesignComponent = () => {
             </p>
             <ImageGrid
               rows={rows}
+              user={user}
               selectedImages={selectedImages}
               handleSubmit={handleSubmit}
               toggleImageSelection={toggleImageSelection}
@@ -474,10 +477,10 @@ const ImageGrid = ({
     ))}
 
     <Row className="render">
-      <Col>
-        {user.subscription.credits <= 0 && <Button onClick={handleSubmit} className="bo">
+      <Col style={{ display: "flex", alignItems: "center", marginTop: "10px" }}>
+        <Button style={{ display: user.subscription.credits <= 0 ? "none" : " flex" }} onClick={handleSubmit} className="bo">
           RENDER DESIGNS
-        </Button>}
+        </Button>
         <span style={{ color: user?.subscription?.credits <= 0 ? "red" : "black" }} className="credits">Cost : {selectedImages?.length}</span>
       </Col>
       <ToastContainer />
