@@ -478,7 +478,7 @@ const ImageGrid = ({
         <Button onClick={handleSubmit} className="bo">
           RENDER DESIGNS
         </Button>
-        <span className="credits">Cost : {selectedImages.length}</span>
+        <span style={{ color: "red" }} className="credits">Cost : {selectedImages?.length}</span>
       </Col>
       <ToastContainer />
     </Row>
