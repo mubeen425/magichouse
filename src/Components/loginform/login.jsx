@@ -31,7 +31,7 @@ const LoginForm = () => {
       localStorage.setItem("googleUser", JSON.stringify(result.data.data));
       localStorage.setItem("token", JSON.stringify(result.data.token));
       navigate("/designing");
-      // window.location.reload();
+      window.location.reload();
       dispatch(storeCredits(result.data.data))
     } catch (error) {
 
