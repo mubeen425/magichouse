@@ -1,1 +1,39 @@
 .vercel
+
+
+# Node.js
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Local environment
+.env
+
+# Compiled binary addons (node-gyp)
+build/compiled/
+
+# Dependency directories
+.pnpm-store/
+.npm/
+yarn-error.log
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional IDE files
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# TernJS port file
+.tern-port

@@ -5,42 +5,39 @@ import jwt_decode from "jwt-decode";
 import { json, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./loginform.css";
+import { useDispatch } from "react-redux"
+import { storeCredits } from "../../redux/userCredits";
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const [userImage, setUserImage] = useState(null);
+  const dispatch = useDispatch();
 
   const responseMessage = async (response) => {
     console.log(response);
     const accessToken = response.credential;
     const user = jwt_decode(accessToken);
 
-    try{
+    try {
       const result = await apiClient.post("/auth/google", {
         googlePayload: user,
       });
-  
       console.log(result)
-      // if (!result.ok) {
-  
-      //   toast.error(result.data.message || "Google Login Failed");
-      //   return;
-      // }
-  
-  
+      if (!result.ok) {
+
+        toast.error(result.data.message || "Google Login Failed");
+        return;
+      }
       localStorage.setItem("googleUser", JSON.stringify(result.data.data));
       localStorage.setItem("token", JSON.stringify(result.data.token));
-  
-    
-  
       navigate("/designing");
-      window.location.reload();
-  
+      // window.location.reload();
+      dispatch(storeCredits(result.data.data))
+    } catch (error) {
 
-    }catch (error) {
-
-console.log(error);
-    } };
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const fetchUserImage = async () => {

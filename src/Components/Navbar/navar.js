@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("googleUser"))
@@ -17,6 +18,8 @@ const Navbar = () => {
   const [userEmail, setUserEmail] = useState("");
   const roundBoxColor = isLoggedIn ? "color-for-logged-in-users" : "";
   const navigate = useNavigate();
+  const credits = useSelector((state) => state?.credits?.credits);
+
 
   useEffect(() => {
     const googleUser = localStorage.getItem("googleUser");
@@ -131,7 +134,7 @@ const Navbar = () => {
             {showLoggedInText && (
               <div className="logedtext">
                 <div className="loggedInText px-4 py-2 text-white">
-                Your Credit: {user?.subscription?.status == "paid" ? "Unlimited" : credit}
+                  Your Credit: {user?.subscription?.status == "paid" ? "Unlimited" : credits}
                 </div>
               </div>
             )}

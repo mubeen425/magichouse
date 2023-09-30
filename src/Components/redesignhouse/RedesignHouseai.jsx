@@ -7,6 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingOverlay from "../LoadingOverlay";
 import { useDropzone } from "react-dropzone";
+import { useDispatch, useSelector } from "react-redux";
+import { storeCredits } from "../../redux/userCredits";
 
 const user = JSON.parse(localStorage.getItem("googleUser"))
 const RedesignComponent = () => {
@@ -17,6 +19,8 @@ const RedesignComponent = () => {
   const [selectedImagesPreview, setSelectedImagesPreview] = useState([]);
   const [selectedRoomType, setSelectedRoomType] = useState("");
   const [apiResponseImages, setApiResponseImages] = useState([]);
+  const credits = useSelector((state) => state?.credits?.credits);
+  const dispatch = useDispatch()
 
   const [imageGridData, setImageGridData] = useState([
     {
@@ -200,6 +204,7 @@ const RedesignComponent = () => {
       setApiResponseImages(result.data.result.filteredResponses);
       console.log("API Response Images:", result.data.result);
       setResultData(result.data.result.filteredResponses);
+      dispatch(storeCredits(result.data.result.updatedUser))
       localStorage.setItem(
         "googleUser",
         JSON.stringify(result.data.result.updatedUser)
@@ -364,7 +369,7 @@ const RedesignComponent = () => {
             </p>
             <ImageGrid
               rows={rows}
-              user={user}
+              credits={credits}
               selectedImages={selectedImages}
               handleSubmit={handleSubmit}
               toggleImageSelection={toggleImageSelection}
@@ -439,6 +444,7 @@ const ImageGrid = ({
   selectedImages,
   toggleImageSelection,
   handleSubmit,
+  credits,
 }) => (
   <div className="image-grid">
     {rows.map((row, rowIndex) => (
@@ -478,10 +484,14 @@ const ImageGrid = ({
 
     <Row className="render">
       <Col style={{ display: "flex", alignItems: "center", marginTop: "10px" }}>
-        <Button style={{ display: user.subscription.credits <= 0 ? "none" : " flex" }} onClick={handleSubmit} className="bo">
+        <Button
+          onClick={handleSubmit}
+          className="bo"
+          disabled={credits <= 0}
+        >
           RENDER DESIGNS
         </Button>
-        <span style={{ color: user?.subscription?.credits <= 0 ? "red" : "black" }} className="credits">Cost : {selectedImages?.length}</span>
+        <span style={{ color: credits <= 0 ? "red" : "black" }} className="credits">Cost : {selectedImages?.length}</span>
       </Col>
       <ToastContainer />
     </Row>
